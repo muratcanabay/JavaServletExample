@@ -33,6 +33,7 @@ public class SavePeople implements Servlet {
         }
         else if (tip.equals("listele")&&personList.size()!=0){
             for (int i = 0; i < personList.size(); i++) {
+                servletResponse.setCharacterEncoding("UTF-8");
                 servletResponse.getWriter().write(personList.get(i) + "\n");
                 System.out.println("\n");
             }
