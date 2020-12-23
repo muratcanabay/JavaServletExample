@@ -1,16 +1,18 @@
-package com.uniyaz.javaOdev;
+package com.uniyaz.servlet;
 
-import javax.servlet.*;
+import javax.servlet.Servlet;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SavePeople implements Servlet {
+public class SavePerson implements Servlet {
     List<String> personList = new ArrayList<>();
 
     @Override
-    public void init(ServletConfig servletConfig) throws ServletException {
-
+    public void init(ServletConfig servletConfig) {
     }
 
     @Override
@@ -19,7 +21,7 @@ public class SavePeople implements Servlet {
     }
 
     @Override
-    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws IOException {
 
         String tip = servletRequest.getParameter("tip");
         String ad = servletRequest.getParameter("ad");
@@ -27,11 +29,10 @@ public class SavePeople implements Servlet {
 
         servletResponse.setCharacterEncoding("UTF-8");
 
-        if (tip.equals("kaydet")&&(ad!=null && soyad!=null)){
-            personList.add(ad+" "+soyad);
-            System.out.println(ad+" "+soyad +" kaydi basariyla eklendi.");
-        }
-        else if (tip.equals("listele")&&personList.size()!=0){
+        if (tip.equals("kaydet") && (ad != null && soyad != null)) {
+            personList.add(ad + " " + soyad);
+            System.out.println(ad + " " + soyad + " kaydi basariyla eklendi.");
+        } else if (tip.equals("listele") && personList.size() != 0) {
             for (int i = 0; i < personList.size(); i++) {
                 servletResponse.getWriter().write(personList.get(i) + "\n");
             }
@@ -45,6 +46,5 @@ public class SavePeople implements Servlet {
 
     @Override
     public void destroy() {
-
     }
 }
