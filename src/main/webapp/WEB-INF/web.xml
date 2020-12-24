@@ -6,7 +6,7 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
     <servlet-name>PersonList</servlet-name>
-    <servlet-class>com.uniyaz.servlet.SavePerson</servlet-class>
+    <servlet-class>io.github.muratcanabay.servlet.SavePerson</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PersonList</servlet-name>
