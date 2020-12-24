@@ -1,4 +1,4 @@
-package com.uniyaz.servlet;
+package io.github.muratcanabay.servlet;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
